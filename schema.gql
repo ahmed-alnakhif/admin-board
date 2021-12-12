@@ -1,0 +1,55 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  userRole: UserRole!
+  accessList: [AccessList!]!
+}
+
+enum UserRole {
+  ADMIN
+  MODERATOR
+  USER
+}
+
+enum AccessList {
+  HOME
+  ABOUT
+  CONTACT
+}
+
+type SignUpOutput {
+  id: ID!
+  name: String!
+  email: String!
+  userRole: UserRole!
+  accessList: [AccessList!]!
+}
+
+type Query {
+  users: [User!]
+  user(id: String!): User
+}
+
+type Mutation {
+  updateUser(updateUserInput: UpdateUserInput!): User!
+  removeUser(id: Int!): User!
+  signUp(signUpInput: SignUpInput!): SignUpOutput!
+}
+
+input UpdateUserInput {
+  name: String
+  email: String
+  password: String
+  id: ID!
+}
+
+input SignUpInput {
+  name: String!
+  email: String!
+  password: String!
+}
