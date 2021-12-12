@@ -22,10 +22,18 @@ enum AccessList {
   CONTACT
 }
 
+type SignInOutput {
+  id: ID!
+  email: String!
+  accessToken: String!
+  userRole: UserRole!
+  accessList: [AccessList!]!
+}
+
 type SignUpOutput {
   id: ID!
-  name: String!
   email: String!
+  accessToken: String!
   userRole: UserRole!
   accessList: [AccessList!]!
 }
@@ -39,17 +47,19 @@ type Mutation {
   updateUser(updateUserInput: UpdateUserInput!): User!
   removeUser(id: Int!): User!
   signUp(signUpInput: SignUpInput!): SignUpOutput!
+  signIn(signInInput: SignInInput!): SignInOutput!
 }
 
 input UpdateUserInput {
-  name: String
-  email: String
-  password: String
   id: ID!
 }
 
 input SignUpInput {
-  name: String!
+  email: String!
+  password: String!
+}
+
+input SignInInput {
   email: String!
   password: String!
 }

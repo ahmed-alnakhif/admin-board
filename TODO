@@ -1,0 +1,12 @@
+1) Roles: 
+    1. admin: 
+        - modify roles
+        - modify access list
+        - update users 
+        - remove users 
+    2. moderator:
+        - modify access list 
+    3. user:
+
+2) Sign Out
+

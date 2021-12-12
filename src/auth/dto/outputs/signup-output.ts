@@ -1,5 +1,5 @@
 import { ObjectType, Field, ID, PartialType } from '@nestjs/graphql';
-import { AccessList, UserRole } from 'src/user/enums';
+import { AccessList, UserRole } from 'src/user/utils/enums';
 
 @ObjectType()
 export class SignUpOutput {
@@ -7,10 +7,10 @@ export class SignUpOutput {
   readonly id: string;
 
   @Field()
-  readonly name: string;
+  readonly email: string;
 
   @Field()
-  readonly email: string;
+  readonly accessToken: string;
 
   @Field((type) => UserRole)
   readonly userRole: UserRole;

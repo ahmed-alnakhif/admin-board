@@ -1,34 +1,29 @@
-import { Injectable, Logger } from '@nestjs/common';
-import { Firebase } from 'firebase';
-import { AuthService } from 'src/auth/auth.service';
-import { CreateUserInput } from './dto/inputs/create-user.input';
-import { UpdateUserInput } from './dto/inputs/update-user.input';
-import { CreateUserOutput } from './dto/outputs/create-user-output';
-import { User } from './entities/user.entity';
-import { AccessList, UserRole } from './enums';
+import { Injectable, Logger } from "@nestjs/common";
+// import { Firebase } from 'firebase';
+import Firebase from "firebase";
+import { UpdateUserInput } from "./dto/inputs/update-user.input";
+import { CreateUserOutput } from "./dto/outputs/create-user-output";
+import { User } from "./entities/user.entity";
+import { AccessList, UserRole } from "./utils/enums";
 
 @Injectable()
 export class UserService {
   firebase = new Firebase();
 
   async createUser(
-    createUserInput: CreateUserInput,
     uid: string,
+    email: string
   ): Promise<CreateUserOutput> {
     try {
-      await this.firebase.firestore
-        .collection('users')
-        .doc(uid)
-        .set({
-          ...createUserInput,
-          userRole: UserRole.USER,
-          accessList: [AccessList.HOME],
-        });
+      await this.firebase.createDocWithId("users", uid, {
+        email,
+        userRole: UserRole.USER,
+        accessList: [AccessList.HOME],
+      });
 
       return {
         id: uid,
-        name: createUserInput.name,
-        email: createUserInput.email,
+        email: email,
         userRole: UserRole.USER,
         accessList: [AccessList.HOME],
       };
@@ -39,9 +34,7 @@ export class UserService {
 
   async findAll() {
     try {
-      const usersCollection = await this.firebase.firestore
-        .collection('users')
-        .get();
+      const usersCollection = await this.firebase.getAllDocs("users")
       const users: User[] = [];
 
       usersCollection.forEach((doc) => {
@@ -54,7 +47,7 @@ export class UserService {
           accessList,
         });
 
-        console.log(doc.id, '=>', doc.data());
+        console.log(doc.id, "=>", doc.data());
       });
 
       return users;
@@ -64,10 +57,7 @@ export class UserService {
   }
 
   async findOne(id: string) {
-    const userDocument = await this.firebase.firestore
-      .collection('users')
-      .doc(id)
-      .get();
+    const userDocument = await this.firebase.getDoc("users", id);
 
     console.log(userDocument.data());
 

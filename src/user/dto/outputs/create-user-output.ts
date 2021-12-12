@@ -1,14 +1,11 @@
 import { ObjectType, Field, ID } from '@nestjs/graphql';
-import { AccessList, UserRole } from 'src/user/enums';
+import { AccessList, UserRole } from 'src/user/utils/enums';
 
 @ObjectType()
 export class CreateUserOutput {
   @Field(() => ID)
   readonly id: string;
-
-  @Field()
-  readonly name: string;
-
+  
   @Field()
   readonly email: string;
 
