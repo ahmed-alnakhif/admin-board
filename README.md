@@ -26,7 +26,7 @@
 
 ## Description
 
-A full stack application dashboard where users can log in and allow admin to assign roles  
+A full stack application dashboard where users can sign up using their email addresses. Admins can also view users and assign roles and access for each user  
 
 ## Installation
 
