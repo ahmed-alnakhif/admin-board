@@ -34,5 +34,7 @@ lerna-debug.log*
 !.vscode/launch.json
 !.vscode/extensions.json
 
-#Secret files
+#Secret environment variables & files 
+.env
 serviceAccountKey.json
+
