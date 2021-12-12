@@ -1,15 +1,15 @@
 <div style="display: flex; justify-content: center; align-items: center">
 
 <span >
-  <img style="margin:100px;" src="https://user-images.githubusercontent.com/24450230/145697977-07d3941f-1bca-4bc3-b531-e1927950f724.jpg" width="300" alt="React Logo" /></a>
+  <img src="https://user-images.githubusercontent.com/24450230/145697977-07d3941f-1bca-4bc3-b531-e1927950f724.jpg" width="200" alt="React Logo" /></a>
 </span>
 
 <span>
- <img src="https://user-images.githubusercontent.com/24450230/145697422-54e2cbce-9f5b-497d-97d0-fe8e8495d527.jpg" width="300" alt="Nest Logo" /></a>
+ <img src="https://user-images.githubusercontent.com/24450230/145697422-54e2cbce-9f5b-497d-97d0-fe8e8495d527.jpg" width="200" alt="Nest Logo" /></a>
 </span>
 
 <span>
- <img src="https://user-images.githubusercontent.com/24450230/145697381-04dc8df8-f03f-4839-9e57-a94889186868.png" width="300" alt="React Logo" /></a>
+ <img src="https://user-images.githubusercontent.com/24450230/145697381-04dc8df8-f03f-4839-9e57-a94889186868.png" width="180" alt="React Logo" /></a>
 </span>
 
 </div>
